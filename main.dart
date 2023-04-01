@@ -6,14 +6,17 @@ void main() {
 }
 
 void regex_test() {
-  const string = 'y = -202/-34x - 5';
-  final re = RegExp(r'[=x]');
-  print(string.split(re).firstWhere((e) => e.contains('/')).split('/'));
+  const string = 'y= -202/23x + 11/12 * 12/4';
+  final re = RegExp(r'[ ]');
+  List<String> splitString =
+      string.split(re);
+  print(splitString);
 }
 
 void math_test() {
   Variable x = Variable('x'), y = Variable('y');
-  String equation = " 2/-3*x - 6/1 * 1/12 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 3333/9999 + 2-y";
+  String equation =
+      " 2/-3*x - 6/1 * 1/12 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 3333/9999 + 2-y";
   Parser p = Parser();
   Expression exp = p.parse(equation);
   ContextModel cm = ContextModel();
