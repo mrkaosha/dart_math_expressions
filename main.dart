@@ -6,11 +6,11 @@ void main() {
 }
 
 void regex_test() {
-  const string = 'y= -202/23x + 11/12 * 12/4';
+  const string = 'y= -202/23 x + 11/12 * 12/4';
   final re = RegExp(r'[ ]');
-  List<String> splitString =
-      string.split(re);
+  List<String> splitString = string.split(re);
   print(splitString);
+  splitString.forEach((element) {})
 }
 
 void math_test() {
