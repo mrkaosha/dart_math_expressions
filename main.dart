@@ -6,11 +6,20 @@ void main() {
 }
 
 void regex_test() {
-  const string = 'y= -202/23 x + 11/12 * 12/4';
+  const string = 'y= -202 / 23 x + 11 / 12 * 12 / 4';
   final re = RegExp(r'[ ]');
-  List<String> splitString = string.split(re);
-  print(splitString);
-  splitString.forEach((element) {})
+  List<String> splitString = string.split(' ');
+  splitString.asMap().forEach((index, element) {
+    if(index == splitString.length-1) {return;}
+    if(element.contains('/')) {
+      print('\\tfrac\{${splitString[index-1]}\}');
+      splitString[index-1] = '\\tfrac\{${splitString[index-1]}\}';
+      splitString[index+1] = '\{${splitString[index+1]}\}';
+      splitString[index]= '';
+    }
+  });
+  
+  print(splitString.join());
 }
 
 void math_test() {
