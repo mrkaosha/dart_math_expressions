@@ -2,7 +2,7 @@ import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   print('hi');
-  regex_test();
+  math_test();
 }
 
 void regex_test() {
@@ -25,11 +25,12 @@ void regex_test() {
 void math_test() {
   Variable x = Variable('x'), y = Variable('y');
   String equation =
-      " 2/-3*x - 6/1 * 1/12 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 3333/9999 + 2-y";
+      "-8/2*x--8/2*-5+-6";
   Parser p = Parser();
   Expression exp = p.parse(equation);
   ContextModel cm = ContextModel();
   cm.bindVariable(x, Number(4.0));
   cm.bindVariable(y, Number(0.0));
+  print(exp);
   print(exp.evaluate(EvaluationType.REAL, cm));
 }
