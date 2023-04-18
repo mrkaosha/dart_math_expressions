@@ -25,7 +25,7 @@ void regex_test() {
 void math_test() {
   Variable x = Variable('x'), y = Variable('y');
   String equation =
-      "-8/2*x--8/2*-5+-6";
+      "*1*x";
   Parser p = Parser();
   Expression exp = p.parse(equation);
   ContextModel cm = ContextModel();
